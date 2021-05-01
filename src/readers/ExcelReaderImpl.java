@@ -34,7 +34,7 @@ public class ExcelReaderImpl implements AbstractReader {
         
         sheetList = new ArrayList<>();
         
-        // Tacno sam dva sheet-a dodala u listu jer vise od toga u trenutnoj aplikaciji necu koristiti
+        // Tacno sam dva sheet-a dodao u listu jer vise od toga u trenutnoj aplikaciji necu koristiti
         sheetList.add(book.getSheetAt(0));
         sheetList.add(book.getSheetAt(1));
 	}
@@ -45,7 +45,7 @@ public class ExcelReaderImpl implements AbstractReader {
 		XSSFSheet tripSheet = sheetList.get(0);
     	Iterator<Row> rowIter = tripSheet.rowIterator();
     	
-    	// kreiram listu trip-ova, da bih posle za svaki trip u drugoj tabeli nasla koordinate
+    	// kreiram listu trip-ova, da bih posle za svaki trip u drugoj tabeli nasao koordinate
     	ArrayList<Trip> tripRows = new ArrayList<>();
     	
     	// Prvi red (nazive kolona) preskacemo, ukoliko postoji barem jedan red u tom sheet-u
@@ -92,7 +92,7 @@ public class ExcelReaderImpl implements AbstractReader {
         	// pretpostavka da ce kolona 1 (B kolona u excell-u) u trip_coordinates tabeli uvek biti "trip_id"
         	if (row.getCell(1).toString().equals(trip_id)) {
         		String stringId = row.getCell(0).toString();
-        		int id = (int)Float.parseFloat(stringId); // cita vrednosti iz excell-a kao decimalni zapis, pa nisam smela
+        		int id = (int)Float.parseFloat(stringId); // cita vrednosti iz excell-a kao decimalni zapis, pa nisam smeo
         												  // da parsiram u Integer
         		
         		String stringX = row.getCell(2).toString();
